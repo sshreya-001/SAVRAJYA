@@ -1,0 +1,70 @@
+.stories-page {
+    padding: 20px;
+    min-height: 100vh;
+    text-align: center;
+    background-image: url('../../assets/S3.jpeg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    align-items: center;
+  }
+  .stories-page h1 {
+    font-style: italic;
+    text-decoration: underline;
+  }
+  .search-input {
+    width: 50%;
+    padding: 10px;
+    margin: 20px 0;
+    font-size: 1rem;
+    border:2px solid #842525;
+    border-radius: 5px;
+    outline: none;
+  }
+  .search-input:focus {
+    border-color: #762121;
+    box-shadow: 0px 0px 5px rgba(132, 37, 37, 0.5);
+  }
+  .stories-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+    
+  }
+  .story-card {
+    background-color: rgba(246, 247, 222, 0.6);;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.2s ease;
+  }
+  
+  .story-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .story-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .story-card p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: black;
+  }
+  
+  .read-more-btn {
+    background-color: #842525;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .read-more-btn:hover {
+    background-color: #762121;
+  }
+  

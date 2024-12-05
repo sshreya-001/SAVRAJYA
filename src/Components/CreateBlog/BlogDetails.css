@@ -1,0 +1,31 @@
+.blog-detail-container {
+    width: 80%;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  .blog-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-decoration: underline;
+    color: #333;
+  }
+  
+  .blog-content {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #444;
+  }
+  
+  .blog-detail-loading,
+  .blog-detail-error {
+    text-align: center;
+    font-size: 1.5rem;
+    color: red;
+    margin-top: 20px;
+  }
+  

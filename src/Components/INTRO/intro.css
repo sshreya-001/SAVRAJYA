@@ -1,0 +1,49 @@
+.background {
+  background-image: url('../../assets/INT2.png'); 
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.right-corner-text {
+  position: absolute;
+  right: 10px; 
+  text-align: right;
+  color: black; 
+  font-size: 5rem;
+  font-style: inherit;
+}
+
+.button {
+  position: absolute;
+  right: 100px; 
+  bottom: 100px; 
+  background-color: #310628;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.5rem;
+  border-radius: 0; 
+  width: auto; 
+  min-width: 150px; 
+  height: 50px; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  border: 5px solid #e3acd0;
+}
+
+.button:hover {
+  background-color: #e3acd0;
+  border: 5px solid #310628;
+  color: black;
+}
+
+  
+
+
+
+   

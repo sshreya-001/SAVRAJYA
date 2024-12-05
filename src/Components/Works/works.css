@@ -1,0 +1,46 @@
+.works-container {
+  position: relative;
+  height: 100vh;
+  background-image: url('../../assets/SY5.png'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  align-items: center;
+}
+.centered-heading {
+  text-align: center;
+  margin-top: 50px; 
+}
+.centered-heading h1 {
+  font-size: 2.5rem;
+  color: #030303;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+  text-decoration: underline;
+  
+}
+.centered-text {
+  font-size: 1.5rem;
+  font-weight: bolder;
+}
+.button-container {
+  margin-bottom: 340px; 
+}
+.centered-button {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  font-weight: bolder;
+  color: white;
+  background-color:  #842525;
+  border: 5px solid white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+}
+.centered-button:hover {
+  background-color: #762121;
+  text-decoration: underline;
+  font-weight: bolder;
+}

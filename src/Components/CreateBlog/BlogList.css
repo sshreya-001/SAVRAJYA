@@ -1,0 +1,95 @@
+.search-input {
+  width: 50%;
+  padding: 10px;
+  font-size: 1rem;
+  margin: 20px 0;
+  border: 2px solid #842525;
+  border-radius: 5px;
+  outline: none;
+}
+.search-input:focus {
+  border-color: #762121;
+  box-shadow: 0px 0px 5px rgba(132, 37, 37, 0.5);
+}
+   .blog-list-container {
+    padding: 20px;
+    min-height: 100vh;
+    text-align: center;
+    background-image: url('../../assets/CB1.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .blog-list-container h2 {
+    font-size: 2.5rem;
+    color: black;
+    text-decoration: underline;
+    margin-bottom: 40px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-style: italic;
+    font-weight: bolder;
+  }
+  .error-message {
+    color: red;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.8); 
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  .blog-card {
+    background: rgba(246, 247, 222, 0.6); 
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 300px;
+    border: 5px solid black;
+}
+
+  .blog-card h3 {
+    font-size: 1.5rem;
+    color: #310628;
+    text-decoration: underline;
+    margin-bottom: 10px;
+  }
+
+  .blog-card p {
+    font-size: 1rem;
+    color: #070707;
+    margin-bottom: 15px;
+  }
+
+  .read-more-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+    background-color: #842525;
+    border: 4px solid yellow;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .read-more-button:hover {
+    background-color: #762121;
+    transform: scale(1.05);
+    text-decoration: underline;
+  }
+
+  .blog-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+  }
