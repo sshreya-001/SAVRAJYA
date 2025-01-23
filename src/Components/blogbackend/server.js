@@ -69,6 +69,19 @@ app.get('/api/blogs', async (req, res) => {
     res.status(500).json({ message: 'Error fetching blogs', error: err });
   }
 });
+// Blog Routes
+app.get('/api/blogs/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const blog = await Blog.findById(id);
+    if (!blog) {
+      return res.status(404).json({ message: 'Blog not found' });
+    }
+    res.status(200).json(blog);
+  } catch (err) {
+    res.status(500).json({ message: 'Error fetching blog', error: err });
+  }
+});
 
 // Story Routes
 app.post('/api/stories', async (req, res) => {
