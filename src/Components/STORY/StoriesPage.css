@@ -40,12 +40,13 @@
     justify-content: center; /* Centers grid items horizontally */
   }
   
-  .story-card {
+  .stories-card {
     background-color: rgba(246, 247, 222, 0.6);
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
     transition: transform 0.2s ease;
+    border: 5px solid black;
   }
   
   .story-card:hover {

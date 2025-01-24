@@ -1,14 +1,13 @@
-.blog-detail-container {
+.story-details-container {
     width: 80%;
     margin: 5px auto;
     padding: 20px;
     border: 6px solid black;
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.3);
-
   }
   
-  .blog-title {
+  .story-title {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 20px;
@@ -16,15 +15,15 @@
     color: black;
   }
   
-  .blog-content {
+  .story-content {
     font-size: 1.1rem;
     line-height: 1.5;
     color: black;
     text-align: center;
   }
   
-  .blog-detail-loading,
-  .blog-detail-error {
+  .story-details-loading,
+  .story-details-error {
     text-align: center;
     font-size: 1.5rem;
     color: red;

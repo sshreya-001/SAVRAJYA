@@ -15,6 +15,7 @@ import StoryEditor from './Components/STORY/StoryEditor';
 import BlogDetails from './Components/CreateBlog/BlogDetails';
 import StoriesPage from './Components/STORY/StoriesPage';
 import StoryDetails from './Components/STORY/StoryDetails';
+import Reader from './Components/READERS/reader';
 function App() {
   return (
     <Router>
@@ -43,6 +44,7 @@ function App() {
           <Route path="/story-editor" element={<StoryEditor />} />
           <Route path="/stories" element={<StoriesPage />} />
           <Route path="/stories/:id" element={<StoryDetails />} />
+          <Route path="/reads" element={<Reader />} />
         </Routes>
       </div>
     </Router>

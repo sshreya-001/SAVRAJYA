@@ -44,7 +44,7 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   height: auto;
   font-weight: bolder;
-  border: 3px solid black;
+  border: 5px solid white;
 }
 
 .story-card h2 {
@@ -62,7 +62,7 @@
   height: auto;
   margin: 20px 0; 
   border-radius: 50%; 
-  border: 4px solid white
+  border: 4px solid white;
 }
 
 .story-card p {

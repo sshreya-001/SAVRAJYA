@@ -55,7 +55,7 @@ const StoriesPage = () => {
               parsedContent?.[0]?.content?.replace(/<\/?[^>]+(>|$)/g, '').slice(0, 100) || // Remove HTML tags
               'No preview available';
             return (
-              <div key={story._id} className="story-card">
+              <div key={story._id} className="stories-card">
                 <h2>{story.title}</h2>
                 <p>{previewText}...</p>
                 <button

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import img1 from '../../assets/INT2.png'; 
+import img1 from '../../assets/DT8.png'; 
 import './BlogDetails.css';
 const backgroundStyle = {
   backgroundImage: `url(${img1})`, 
@@ -14,7 +14,6 @@ const BlogDetails = () => {
   const { id } = useParams(); 
   const [blog, setBlog] = useState(null);
   const [error, setError] = useState('');
-
   useEffect(() => {
     const fetchBlogDetail = async () => {
       try {
@@ -27,11 +26,9 @@ const BlogDetails = () => {
         
       }
     };
-  
     fetchBlogDetail();
-  }, [id]);
-  
 
+  }, [id]);
   if (error) {
     return <div className="blog-detail-error">{error}</div>;
   }
@@ -39,7 +36,6 @@ const BlogDetails = () => {
   if (!blog) {
     return <div className="blog-detail-loading">Loading...</div>;
   }
-
   return (
     <div style={backgroundStyle}>
     <div className="blog-detail-container">
