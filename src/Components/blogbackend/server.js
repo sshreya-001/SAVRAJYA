@@ -2,7 +2,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-
 const app = express();
 
 // Middleware
@@ -108,7 +107,6 @@ app.get('/api/stories', async (req, res) => {
     res.status(500).json({ message: 'Error fetching stories', error: err });
   }
 });
-
 // Start the Server
 const PORT = 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

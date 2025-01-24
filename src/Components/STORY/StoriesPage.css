@@ -1,4 +1,4 @@
-.stories-page {
+   .stories-page {
     padding: 20px;
     min-height: 100vh;
     text-align: center;
@@ -6,34 +6,42 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Ensures everything is centered horizontally */
   }
+  
   .stories-page h1 {
     font-style: italic;
     text-decoration: underline;
   }
+  
   .search-input {
     width: 50%;
     padding: 10px;
     margin: 20px 0;
     font-size: 1rem;
-    border:2px solid #842525;
+    border: 2px solid #842525;
     border-radius: 5px;
     outline: none;
   }
+  
   .search-input:focus {
     border-color: #762121;
     box-shadow: 0px 0px 5px rgba(132, 37, 37, 0.5);
   }
+  
   .stories-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive layout */
     gap: 20px;
+    width: 80%; /* Adjust width to ensure proper alignment */
     margin-top: 20px;
-    
+    justify-content: center; /* Centers grid items horizontally */
   }
+  
   .story-card {
-    background-color: rgba(246, 247, 222, 0.6);;
+    background-color: rgba(246, 247, 222, 0.6);
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -66,5 +74,11 @@
   
   .read-more-btn:hover {
     background-color: #762121;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 1.2rem;
+    margin-top: 20px;
   }
   
