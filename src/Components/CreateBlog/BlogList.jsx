@@ -39,7 +39,6 @@ const BlogList = () => {
   return (
     
     <div className="blog-list-container">
-
       <h2>ALL OUR BLOGS</h2>
       
       <input

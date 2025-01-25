@@ -37,6 +37,7 @@ function App() {
             }
           />
           <Route path="/login" element={<LOGIN />} />
+          <Route path="/intro" element={<INTRO />} />
           <Route path="/knowus" element={<KNOWUS />} />
           <Route path="/create-blog" element={<CreateBlog />} />
           <Route path="/blogs" element={<BlogList />} />

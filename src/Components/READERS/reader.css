@@ -1,4 +1,4 @@
-/* .reader-container {
+ /* .reader-container {
     position: relative;
     height: 100vh;
     background-image: url('../../assets/RD1.png');
@@ -82,7 +82,24 @@
     font-size: 0.9rem;
     color: #333;
     margin-bottom: 10px;
-} */
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ */
 
 
 .reader-container {
@@ -94,14 +111,14 @@
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Align the content at the top */
+    justify-content: flex-start; 
     align-items: center;
-    padding-top: 20px; /* Adds slight padding to the top */
+    padding-top: 20px; 
 }
 
 .center-heading {
     text-align: center;
-    margin-top: 20px; /* Reduce margin from top */
+    margin-top: 20px; 
 }
 
 .center-heading h1 {
@@ -115,7 +132,7 @@
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    margin-top: 20px; /* Reduced margin-top to bring the cards closer */
+    margin-top: 20px; 
     width: 80%;
 }
 
@@ -132,11 +149,12 @@
     align-items: center;
     height: auto;
     max-height: 300px;
-    flex: 1;
-    min-width: 200px;
+    flex: 1 1 200px; /* Makes sure cards shrink and grow properly */
     font-weight: bolder;
     border: 3px solid black;
+    margin-left: 0px;
 }
+
 
 .cards-image {
     width: 70px;
@@ -175,4 +193,4 @@
     font-size: 0.9rem;
     color: #333;
     margin-bottom: 10px;
-}
+} 

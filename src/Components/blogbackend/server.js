@@ -54,7 +54,6 @@
 
 //     const newBlog = new Blog({ title, content });
 //     await newBlog.save();
-//     console.log('New Blog Saved:', newBlog);
 //     res.status(201).json({ message: 'Blog created successfully', blog: newBlog });
 //   } catch (err) {
 //     res.status(400).json({ message: 'Error creating blog', error: err });
@@ -69,7 +68,7 @@
 //     res.status(500).json({ message: 'Error fetching blogs', error: err });
 //   }
 // });
-// // Blog Routes
+
 // app.get('/api/blogs/:id', async (req, res) => {
 //   try {
 //     const { id } = req.params;
@@ -108,9 +107,27 @@
 //     res.status(500).json({ message: 'Error fetching stories', error: err });
 //   }
 // });
+
+// // New route for fetching a single story
+// app.get('/api/stories/:id', async (req, res) => {
+//   try {
+//     const { id } = req.params;
+//     const story = await Story.findById(id);
+//     if (!story) {
+//       return res.status(404).json({ message: 'Story not found' });
+//     }
+//     res.status(200).json(story);
+//   } catch (err) {
+//     res.status(500).json({ message: 'Error fetching story', error: err });
+//   }
+// });
+
 // // Start the Server
 // const PORT = 5000;
 // app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+
+
 
 
 
@@ -132,6 +149,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+
 const app = express();
 
 // Middleware
@@ -151,9 +171,8 @@ const storiesDBConnection = mongoose.createConnection('mongodb://localhost:27017
   useUnifiedTopology: true,
 });
 
-// Log the storiesDB connection status
 storiesDBConnection.on('connected', () => console.log('Connected to storiesDB'));
-storiesDBConnection.on('error', (err) => console.error('storiesDB Connection Error:', err));
+storiesDBConnection.on('error', err => console.error('storiesDB Connection Error:', err));
 
 // Blog Schema and Model (blogDB)
 const blogSchema = new mongoose.Schema({
@@ -161,27 +180,38 @@ const blogSchema = new mongoose.Schema({
   content: { type: String, required: true },
   createdAt: { type: Date, default: Date.now },
 });
-
 const Blog = mongoose.model('Blog', blogSchema);
 
 // Story Schema and Model (storiesDB)
 const storySchema = new mongoose.Schema({
   title: { type: String, required: true },
-  content: { type: String, required: true }, // Serialized chapters
+  content: { type: String, required: true },
   createdAt: { type: Date, default: Date.now },
 });
-
 const Story = storiesDBConnection.model('Story', storySchema);
+
+// User Schema and Model (For Authentication)
+const userSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+});
+userSchema.pre('save', async function (next) {
+  if (this.isModified('password')) {
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, salt);
+  }
+  next();
+});
+const User = mongoose.model('User', userSchema);
 
 // Blog Routes
 app.post('/api/blogs', async (req, res) => {
   try {
     const { title, content } = req.body;
-
     if (!title || !content) {
       return res.status(400).json({ message: 'Title and content are required' });
     }
-
     const newBlog = new Blog({ title, content });
     await newBlog.save();
     res.status(201).json({ message: 'Blog created successfully', blog: newBlog });
@@ -216,11 +246,9 @@ app.get('/api/blogs/:id', async (req, res) => {
 app.post('/api/stories', async (req, res) => {
   try {
     const { title, content } = req.body;
-
     if (!title || !content) {
       return res.status(400).json({ message: 'Title and content are required' });
     }
-
     const newStory = new Story({ title, content });
     await newStory.save();
     res.status(201).json({ message: 'Story created successfully', story: newStory });
@@ -238,7 +266,6 @@ app.get('/api/stories', async (req, res) => {
   }
 });
 
-// New route for fetching a single story
 app.get('/api/stories/:id', async (req, res) => {
   try {
     const { id } = req.params;
@@ -249,6 +276,46 @@ app.get('/api/stories/:id', async (req, res) => {
     res.status(200).json(story);
   } catch (err) {
     res.status(500).json({ message: 'Error fetching story', error: err });
+  }
+});
+
+// Authentication Routes
+app.post('/api/signup', async (req, res) => {
+  try {
+    const { name, email, password } = req.body;
+    if (!name || !email || !password) {
+      return res.status(400).json({ message: 'All fields are required' });
+    }
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res.status(400).json({ message: 'Email already registered' });
+    }
+    const newUser = new User({ name, email, password });
+    await newUser.save();
+    res.status(201).json({ message: 'Signup successful' });
+  } catch (err) {
+    res.status(400).json({ message: 'Error signing up', error: err });
+  }
+});
+
+app.post('/api/login', async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    if (!email || !password) {
+      return res.status(400).json({ message: 'All fields are required' });
+    }
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    if (!isPasswordValid) {
+      return res.status(401).json({ message: 'Invalid email or password' });
+    }
+    const token = jwt.sign({ id: user._id, email: user.email }, 'your_jwt_secret', { expiresIn: '1h' });
+    res.status(200).json({ message: 'Login successful', token });
+  } catch (err) {
+    res.status(500).json({ message: 'Error logging in', error: err });
   }
 });
 

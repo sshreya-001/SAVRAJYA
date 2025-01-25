@@ -1,4 +1,4 @@
-.wrapper {
+/* .wrapper {
     height: 10vh;
     display: flex;
     justify-content: space-between;
@@ -59,4 +59,79 @@
     background-color: #e3acd0;
     text-decoration: underline;
     color:black;
+} */
+
+
+
+
+
+
+/* NavBar.css */
+.wrapper {
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background-color: #310628;
+}
+
+.left {
+    display: flex;
+    flex-direction: column; /* Stack logo and text vertically */
+    align-items: center; /* Center them horizontally */
+}
+
+.left .logo {
+    height: 50px; /* Adjust the size of your logo */
+    width: 50px;  /* Set width equal to height for a perfect circle */
+    border-radius: 50%; /* This makes the logo round */
+    object-fit: cover; /* Ensures the logo fits inside the circle without distortion */
+}
+
+.right {
+    display: flex;
+    align-items: center;
+}
+
+.right .list ul {
+    list-style: none;
+    display: flex; 
+    margin: 0;
+    padding: 0;
+}
+
+.right .list ul li,
+  .right .list ul a {
+    margin: 0 15px;
+    color: white;
+    cursor: pointer;
+    text-decoration: none; 
+}
+
+.right .list ul a:hover,
+  .right .list ul li:hover {
+    cursor: pointer;
+    color: #e3acd0;
+    text-decoration: underline;
+}
+
+.butt {
+    background-color: #310628;
+    color: white;
+    border-radius: 34px;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-left: 20px;
+    font-weight: bold;
+    background: linear-gradient(180deg, #e3acd0 );
+    border: 2px solid #e3acd0;
+    transition: background-color 0.3s ease;
+}
+
+.butt:hover {
+    background-color: #e3acd0;
+    text-decoration: underline;
+    color: black;
 }
